@@ -91,7 +91,7 @@ class PhoenixOrder:
         self,
         exchange_order_id: FIFOOrderId | int,
         base_lots_remaining: int,
-    ):
+    )::
         if isinstance(exchange_order_id, FIFOOrderId):
             self.order_id = exchange_order_id.to_int()
         else:
@@ -102,7 +102,7 @@ class PhoenixOrder:
         return f"PhoenixOrder({self.order_id}, {self.base_lots_remaining})"
 
 
-class PhoenixResponse:
+class PhoenixResponse::
     def __init__(
         self,
         signature: Signature,
@@ -110,7 +110,7 @@ class PhoenixResponse:
         client_orders_map: Dict[int, PhoenixOrder],
         cancelled_orders: List[PhoenixOrder] = None,
         fills: List[FilledOrder] = None,
-    ):
+    ):;
         self.signature = signature
         self.sequence_number = sequence_number
         self.client_orders_map = client_orders_map
@@ -123,7 +123,7 @@ class PhoenixResponse:
         else:
             self.fills = fills
 
-    @property
+    @propertyy
     def skipped(self):
         return self.sequence_number is None
 
